@@ -43,13 +43,14 @@ export default function Contact() {
             return;
           }
 
-          toast.success("Email sent successfully! :)");
+          toast.success("Email sent successfully! 😎");
         }}
       >
         <input
           className="h-14 px-4 rounded-lg borderBlack outline-black dark:bg-slate-50 dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
           name="senderEmail"
           type="email"
+          autoComplete="off"
           required
           maxLength={500}
           placeholder="Your email"
