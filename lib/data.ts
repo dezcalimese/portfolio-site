@@ -5,6 +5,7 @@ import { LuGraduationCap } from "react-icons/lu";
 import brxlandingpageImg from "@/public/brx-landing-page.png"
 import brxexchangeImg from "@/public/brx-exchange.png";
 import mintingmelodiesImg from "@/public/minting-melodies.png";
+import rsvpappImg from "@/public/rsvp-app.png"
 
 export const links = [
   {
@@ -35,52 +36,59 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Graduated bootcamps",
+    location: "NuCamp / ConsenSys",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2019",
+      "I graduated both NuCamp and ConsenSys bootcamps after 6 months of studying. I then created multiple decentralized applications as personal projects.",
+    icon: React.createElement(""),
+    date: "2021",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
+    title: "Chief Technical Officer / Founding Engineer",
+    location: "Minting Melodies",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
-    icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+      "I worked as the Chief Technical Officer and Founding Engineer for Minting Melodies, doing full-stack development.",
+    icon: React.createElement(""),
+    date: "2022 - 2023",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
+    title: "Blockchain Developer",
+    location: "Bricks Exchange",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2021 - present",
+      "I'm now a full-stack blockchain developer working as the lead frontend engineer for Bricks Exchange. My stack includes React, Next.js, JavaScript TypeScript, and Tailwind. I'm open to full-time opportunities.",
+    icon: React.createElement(""),
+    date: "2022 - present",
   },
 ] as const;
 
 export const projectsData = [
   {
-    title: "BRX Exchange Landing Page",
+    title: "Bricks Exchange Landing Page",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
+      "Landing page for Bricks Exchange. Users can check out information about the company.",
     tags: ["React", "Next.js", "Tailwind", "Wagmi", "Viem"],
     imageUrl: brxlandingpageImg,
   },
   {
-    title: "BRX Decentralized Exchange",
+    title: "Bricks Decentralized Exchange",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
+      "UI for the Bricks decentralized exchange. Users can swap USDC for BRX, check their balances, stake their tokens and contact support if needed.",
+    tags: ["React", "Next.js", "Tailwind", "Wagmi", "Viem"],
     imageUrl: brxexchangeImg,
   },
   {
     title: "Minting Melodies",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
+      "UI for the marketplace enabling users to download NFT collections of artists' songs.",
+    tags: ["React", "Next.js", "Tailwind", "Redux", "Thirdweb"],
     imageUrl: mintingmelodiesImg,
+  },
+  {
+    title: "RSVP Decentralized App Project",
+    description:
+      "UI for the page enabling users to create and RSVP to events.",
+    tags: ["React", "Next.js", "Tailwind", "Redux", "Wagmi", "Ethers"],
+    imageUrl: rsvpappImg,
   },
 ] as const;
 
@@ -97,6 +105,11 @@ export const skillsData = [
   "Redux",
   "GraphQL",
   "Express",
+  "Mocha",
+  "Truffle",
+  "Hardhat",
+  "Foundry",
+  "Thirdweb",
   "PostgreSQL",
   "Python",
   "Django",
