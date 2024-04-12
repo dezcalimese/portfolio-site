@@ -2,7 +2,7 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import brxlandingpageImg from "@/public/brx-landing-page.png"
+import brxlandingpageImg from "@/public/brx-landing-page.png";
 import brxexchangeImg from "@/public/brx-exchange.png";
 import mintingmelodiesImg from "@/public/minting-melodies.png";
 import rsvpappImg from "@/public/rsvp-app.png"
