@@ -38,7 +38,7 @@ export default function About() {
         . I am also familiar with Python, SQL, Rust and Move. I am always
         looking to learn new technologies. I am currently looking for a{" "}
         <span className="font-medium">full-time position</span> as a software
-        developer.
+        developer/blockchain developer.
       </p>
       <p>
         <span className="italic">When I'm not coding</span>, I enjoy analyzing
