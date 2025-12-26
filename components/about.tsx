@@ -1,55 +1,55 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import SectionHeading from "./section-heading";
 import { useSectionInView } from "@/lib/hooks";
+
 export default function About() {
   const { ref } = useSectionInView("About");
 
   return (
     <motion.section
       ref={ref}
-      className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28"
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.175 }}
+      className="mb-28 max-w-3xl mx-auto px-4 scroll-mt-28 sm:mb-40"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
       id="about"
     >
-      <SectionHeading>About me</SectionHeading>
-      <p className="mb-3">
-        {" "}
-        After seeing how powerful and creative decentralized applications could
-        become, <span className="font-medium"></span>I decided to pursue my
-        passion for programming. I enrolled in two coding bootcamps
-        simultaneously; NuCamp's{" "}
-        <span className="font-medium">
-          backend development using Python, SQL, and DevOps
-        </span>{" "}
-        bootcamp and ConsenSys Academy's{" "}
-        <span className="font-medium">Blockchain Developer</span> bootcamp.
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect. I <span className="underline">love</span> the
-        feeling of finally figuring out a solution to a problem. My core stack
-        is{" "}
-        <span className="font-medium">
-          React, Next.js, JavaScript/TypeScript, and Solidity
-        </span>
-        . I am also familiar with Python, SQL, Rust and Move. I am always
-        looking to learn new technologies. I am currently looking for a{" "}
-        <span className="font-medium">full-time position</span> as a software
-        developer/blockchain developer.
-      </p>
-      <p>
-        <span className="italic">When I'm not coding</span>, I enjoy analyzing
-        the crypto markets, diving deep into DeFi metrics, creating music,
-        playing basketball, watching anime, reading copius amounts of manga,
-        researching different types of architecture, and playing video games. I
-        also enjoy <span className="font-medium">learning new things</span>. I
-        am currently learning about{" "}
-        <span className="font-medium">audioreactive art</span> and{" "}
-        <span className="font-medium">3D art</span>.
-      </p>
+      <SectionHeading>About</SectionHeading>
+
+      <div className="space-y-6 swiss-body text-swiss-text-secondary leading-relaxed">
+        <p>
+          After discovering the transformative potential of decentralized
+          applications, I committed to mastering blockchain development. I
+          enrolled in two intensive bootcamps simultaneously:{" "}
+          <span className="text-swiss-text font-medium">NuCamp</span> for backend
+          development with Python, SQL, and DevOps, and{" "}
+          <span className="text-swiss-text font-medium">ConsenSys Academy</span>{" "}
+          for blockchain fundamentals.
+        </p>
+
+        <p>
+          What drives me is the problem-solving aspect of engineering. There's
+          nothing quite like the moment a complex solution clicks into place. My
+          core stack includes{" "}
+          <span className="text-swiss-text font-medium">
+            React, Next.js, TypeScript, and Solidity
+          </span>
+          , complemented by Python, Rust, and Move for systems-level work.
+        </p>
+
+        <p>
+          Outside of coding, I analyze crypto markets, dive deep into DeFi
+          metrics, create music, and explore{" "}
+          <span className="text-swiss-text font-medium">
+            audioreactive and 3D art
+          </span>
+          . I'm always learning something new.
+        </p>
+      </div>
     </motion.section>
   );
 }

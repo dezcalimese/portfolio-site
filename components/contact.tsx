@@ -15,26 +15,27 @@ export default function Contact() {
     <motion.section
       id="contact"
       ref={ref}
-      className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{
-        duration: 1,
-      }}
-      viewport={{
-        once: true,
-      }}
+      className="mb-20 sm:mb-28 max-w-xl mx-auto px-4"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
     >
-      <SectionHeading>Contact me</SectionHeading>
-      <p className="text-gray-700 -mt-6 dark:text-slate-50/80">
-        Please contact me directly at{" "}
-        <a className="underline" href="mailto:dezcalimese@gmail.com">
+      <SectionHeading>Contact</SectionHeading>
+
+      <p className="text-center text-swiss-text-secondary mb-8">
+        Reach out directly at{" "}
+        <a
+          className="text-swiss-accent hover:underline font-medium"
+          href="mailto:dezcalimese@gmail.com"
+        >
           dezcalimese@gmail.com
         </a>{" "}
-        or through this form.
+        or use the form below.
       </p>
+
       <form
-        className="mt-10 flex flex-col dark:text-black"
+        className="space-y-4"
         action={async (formData) => {
           const { data, error } = await sendEmail(formData);
 
@@ -43,11 +44,11 @@ export default function Contact() {
             return;
           }
 
-          toast.success("Email sent successfully! 😎");
+          toast.success("Message sent successfully!");
         }}
       >
         <input
-          className="h-14 px-4 rounded-lg borderBlack outline-black dark:bg-slate-50 dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          className="w-full h-14 px-4 bg-swiss-card border border-swiss-border rounded-lg text-swiss-text placeholder:text-swiss-text-secondary/50 focus:border-swiss-accent focus:outline-none transition-colors"
           name="senderEmail"
           type="email"
           autoComplete="off"
@@ -56,7 +57,7 @@ export default function Contact() {
           placeholder="Your email"
         />
         <textarea
-          className="h-52 my-3 rounded-lg borderBlack outline-black p-4 dark:bg-slate-50 dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          className="w-full h-48 p-4 bg-swiss-card border border-swiss-border rounded-lg text-swiss-text placeholder:text-swiss-text-secondary/50 focus:border-swiss-accent focus:outline-none transition-colors resize-none"
           name="message"
           placeholder="Your message..."
           required

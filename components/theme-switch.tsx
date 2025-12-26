@@ -2,17 +2,47 @@
 
 import React from "react";
 import { BsMoon, BsSun } from "react-icons/bs";
+import { HiComputerDesktop } from "react-icons/hi2";
 import { useTheme } from "@/context/theme-content";
 
 export default function ThemeSwitch() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
-    <button
-      className="fixed top-20 md:top-7 right-10 bg-slate-50 w-[3rem] h-[3rem] bg-opacity-90 backdrop-blur-[0.5rem] border-2 border-[#fdfd96] border-opacity-80 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-105 transition-all dark:bg-gray-950 dark:border-[#9966cc]"
-      onClick={toggleTheme}
-    >
-      {theme === "light" ? <BsSun /> : <BsMoon />}
-    </button>
+    <div className="fixed bottom-6 right-6 flex items-center gap-1 p-1 bg-swiss-card border border-swiss-border rounded-full z-[999]">
+      <button
+        className={`p-2.5 rounded-full transition-all duration-200 ${
+          theme === "light"
+            ? "bg-swiss-accent/15 text-swiss-accent"
+            : "text-swiss-text-secondary hover:text-swiss-text"
+        }`}
+        onClick={() => setTheme("light")}
+        aria-label="Light mode"
+      >
+        <BsSun className="w-4 h-4" />
+      </button>
+      <button
+        className={`p-2.5 rounded-full transition-all duration-200 ${
+          theme === "system"
+            ? "bg-swiss-accent/15 text-swiss-accent"
+            : "text-swiss-text-secondary hover:text-swiss-text"
+        }`}
+        onClick={() => setTheme("system")}
+        aria-label="System theme"
+      >
+        <HiComputerDesktop className="w-4 h-4" />
+      </button>
+      <button
+        className={`p-2.5 rounded-full transition-all duration-200 ${
+          theme === "dark"
+            ? "bg-swiss-accent/15 text-swiss-accent"
+            : "text-swiss-text-secondary hover:text-swiss-text"
+        }`}
+        onClick={() => setTheme("dark")}
+        aria-label="Dark mode"
+      >
+        <BsMoon className="w-4 h-4" />
+      </button>
+    </div>
   );
 }

@@ -1,17 +1,22 @@
 import Header from "@/components/header";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/footer";
-import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-content";
+import dynamic from "next/dynamic";
 
-const inter = Inter({ subsets: ["latin"] });
+const GradientBackground = dynamic(
+  () => import("@/components/gradient-background"),
+  { ssr: false }
+);
 
 export const metadata = {
-  title: "Dez | Personal Portfolio",
-  description: "Dez is a fullstack developer with 3 years of experience developing decentralized applications.",
+  title: "Dez Calimese | Full-Stack Blockchain Developer",
+  description:
+    "Dez Calimese is a full-stack blockchain developer with 4 years of experience building decentralized applications and web interfaces.",
 };
 
 export default function RootLayout({
@@ -20,19 +25,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth">
+    <html lang="en" className="!scroll-smooth dark">
       <body
-        className={`${inter.className} bg-slate-50 text-slate-950 relative pt-28 sm:pt-36 dark:bg-slate-900 dark:text-gray-50 dark:text-opacity-85`}
+        className={`${GeistSans.variable} ${GeistMono.variable} font-sans text-swiss-text relative pt-28 sm:pt-36`}
       >
-        <div className="bg-[#ff70a6] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#7fc8f8]"></div>
-        <div className="bg-[#70d6ff] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#ff5d8f]"></div>
         <ThemeContextProvider>
+          <GradientBackground />
+
           <ActiveSectionContextProvider>
             <Header />
             {children}
             <Footer />
-            <ThemeSwitch />
-            <Toaster position="bottom-right" />
+            <Toaster
+              position="bottom-right"
+              toastOptions={{
+                style: {
+                  background: "var(--color-card)",
+                  color: "var(--color-text)",
+                  border: "1px solid var(--color-border)",
+                },
+              }}
+            />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </body>

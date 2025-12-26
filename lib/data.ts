@@ -1,11 +1,9 @@
 import React from "react";
-import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
-import { LuGraduationCap } from "react-icons/lu";
+import nekoImg from "@/public/neko-app.png";
 import brxlandingpageImg from "@/public/brx-landing-page.png";
 import brxexchangeImg from "@/public/brx-exchange.png";
 import mintingmelodiesImg from "@/public/minting-melodies.png";
-import rsvpappImg from "@/public/rsvp-app.png"
+import rsvpappImg from "@/public/rsvp-app.png";
 
 export const links = [
   {
@@ -36,87 +34,106 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamps",
-    location: "NuCamp / ConsenSys",
+    title: "Graduated Bootcamps",
+    company: "NuCamp / ConsenSys",
     description:
-      "I graduated both NuCamp and ConsenSys bootcamps after 6 months of studying. I then created multiple decentralized applications as personal projects.",
-    icon: React.createElement(""),
+      "Completed intensive full-stack and blockchain development programs. Built multiple decentralized applications as capstone projects.",
     date: "2021",
+    type: "education" as const,
   },
   {
-    title: "Chief Technical Officer / Founding Engineer",
-    location: "Minting Melodies",
+    title: "CTO / Founding Engineer",
+    company: "Minting Melodies",
     description:
-      "I worked as the Chief Technical Officer and Founding Engineer for Minting Melodies, doing full-stack development.",
-    icon: React.createElement(""),
+      "Led technical architecture and full-stack development for an NFT music marketplace. Built smart contracts and React frontend.",
     date: "2022 - 2023",
+    type: "work" as const,
   },
   {
-    title: "Blockchain Developer",
-    location: "Bricks Exchange",
+    title: "Lead Blockchain Developer",
+    company: "Bricks Exchange",
     description:
-      "I'm now a full-stack blockchain developer working as the lead frontend engineer for Bricks Exchange. My stack includes React, Next.js, JavaScript TypeScript, and Tailwind. I'm open to full-time opportunities.",
-    icon: React.createElement(""),
-    date: "2022 - present",
+      "Led a four-person frontend team building blockchain applications, mentoring junior developers and collaborating cross-functionally while managing project timelines using agile methodologies.",
+    date: "2022 - 2024",
+    type: "work" as const,
+  },
+  {
+    title: "Founding Engineer",
+    company: "Omo Protocol",
+    description:
+      "Built ERC4626 vaults and AI agent infrastructure across multiple chains, developing smart contracts, a cross-chain plugin for ElizaOS, and automation scripts in Solidity, Python, and Rust.",
+    date: "2023 - 2025",
+    type: "work" as const,
   },
 ] as const;
 
 export const projectsData = [
   {
-    title: "Bricks Exchange Landing Page",
+    title: "Neko DeFi",
     description:
-      "Landing page for Bricks Exchange. Users can check out information about the company.",
-    tags: ["React", "Next.js", "Tailwind", "Wagmi", "Viem"],
-    imageUrl: brxlandingpageImg,
+      "DeFi protocol interface featuring token swaps, perpetual trading, vault deposits, and portfolio tracking. Modern dark UI with real-time data.",
+    tags: ["React", "Next.js", "TypeScript", "Tailwind", "Web3"],
+    imageUrl: nekoImg, 
+    featured: true,
+    link: "https://app.neko.fun",
   },
   {
-    title: "Bricks Decentralized Exchange",
+    title: "Bricks Exchange",
     description:
-      "UI for the Bricks decentralized exchange. Users can swap USDC for BRX, check their balances, stake their tokens and contact support if needed.",
+      "Decentralized exchange UI for swapping USDC for BRX, staking tokens, and managing balances.",
     tags: ["React", "Next.js", "Tailwind", "Wagmi", "Viem"],
     imageUrl: brxexchangeImg,
+    featured: true,
+    link: null,
+  },
+  {
+    title: "Bricks Landing",
+    description:
+      "Marketing landing page for Bricks Exchange with company information and features.",
+    tags: ["React", "Next.js", "Tailwind"],
+    imageUrl: brxlandingpageImg,
+    featured: false,
+    link: "https://brx.exchange",
   },
   {
     title: "Minting Melodies",
     description:
-      "UI for the marketplace enabling users to download NFT collections of artists' songs.",
-    tags: ["React", "Next.js", "Tailwind", "Redux", "Thirdweb"],
+      "NFT marketplace for artists to sell downloadable song collections as digital collectibles.",
+    tags: ["React", "Next.js", "Redux", "Thirdweb"],
     imageUrl: mintingmelodiesImg,
+    featured: false,
+    link: null,
   },
   {
-    title: "RSVP Decentralized App Project",
+    title: "RSVP dApp",
     description:
-      "UI for the page enabling users to create and RSVP to events.",
-    tags: ["React", "Next.js", "Tailwind", "Redux", "Wagmi", "Ethers"],
+      "Decentralized event management app for creating and RSVPing to events on-chain.",
+    tags: ["React", "Next.js", "Wagmi", "Ethers"],
     imageUrl: rsvpappImg,
+    featured: false,
+    link: null,
   },
 ] as const;
 
 export const skillsData = [
-  "HTML",
-  "CSS",
-  "JavaScript",
   "TypeScript",
   "React",
   "Next.js",
-  "Node.js",
-  "Git",
-  "Tailwind",
-  "Redux",
-  "GraphQL",
-  "Express",
-  "Mocha",
-  "Truffle",
-  "Hardhat",
-  "Foundry",
-  "Thirdweb",
-  "PostgreSQL",
-  "Python",
-  "Django",
-  "Framer Motion",
   "Solidity",
   "Rust",
   "Move",
+  "Node.js",
+  "Python",
+  "Tailwind",
+  "GraphQL",
+  "PostgreSQL",
   "Docker",
-  "AWS"
+  "AWS",
+  "Git",
+  "Hardhat",
+  "Foundry",
+  "Wagmi",
+  "Viem",
+  "Thirdweb",
+  "Framer Motion",
 ] as const;
