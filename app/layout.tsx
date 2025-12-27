@@ -1,17 +1,7 @@
-import Header from "@/components/header";
 import "./globals.css";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import ActiveSectionContextProvider from "@/context/active-section-context";
-import { Toaster } from "react-hot-toast";
-import Footer from "@/components/footer";
-import ThemeContextProvider from "@/context/theme-content";
-import dynamic from "next/dynamic";
-
-const GradientBackground = dynamic(
-  () => import("@/components/gradient-background"),
-  { ssr: false }
-);
+import LayoutClient from "@/components/layout-client";
 
 export const metadata = {
   title: "Dez Calimese | Full-Stack Blockchain Developer",
@@ -25,29 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth dark">
+    <html lang="en" className="!scroll-smooth dark" suppressHydrationWarning>
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} font-sans text-swiss-text relative pt-28 sm:pt-36`}
       >
-        <ThemeContextProvider>
-          <GradientBackground />
-
-          <ActiveSectionContextProvider>
-            <Header />
-            {children}
-            <Footer />
-            <Toaster
-              position="bottom-right"
-              toastOptions={{
-                style: {
-                  background: "var(--color-card)",
-                  color: "var(--color-text)",
-                  border: "1px solid var(--color-border)",
-                },
-              }}
-            />
-          </ActiveSectionContextProvider>
-        </ThemeContextProvider>
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );

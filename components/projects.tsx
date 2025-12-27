@@ -30,13 +30,18 @@ export default function Projects() {
 type ProjectType = (typeof projectsData)[number];
 
 function BentoCard({ project, index }: { project: ProjectType; index: number }) {
-  // Grid layout: Featured projects span more columns
+  // Grid layout:
+  // Top: Large left (7 cols, 2 rows) + two stacked right (5 cols each)
+  // Bottom: Two stacked left (5 cols each) + large right (7 cols, 2 rows) - mirrored
   const getGridClass = () => {
-    if (index === 0) return "lg:col-span-7 lg:row-span-2"; // Neko - large featured
-    if (index === 1) return "lg:col-span-5 lg:row-span-1"; // Bricks Exchange
-    if (index === 2) return "lg:col-span-5 lg:row-span-1"; // Bricks Landing
-    if (index === 3) return "lg:col-span-6 lg:row-span-1"; // Minting Melodies
-    return "lg:col-span-6 lg:row-span-1"; // RSVP
+    if (index === 0) return "lg:col-span-7 lg:row-span-2"; // Neko - large left
+    if (index === 1) return "lg:col-span-5"; // Bricks Real Estate - top right
+    if (index === 2) return "lg:col-span-5"; // Bricks Exchange MVP - bottom right (stacked)
+    // Bottom section - mirrored pattern
+    if (index === 3) return "lg:col-span-5 lg:row-start-3"; // RSVP - top left
+    if (index === 4) return "lg:col-span-5 lg:row-start-4"; // Minting Melodies - bottom left (stacked)
+    if (index === 5) return "lg:col-span-7 lg:row-span-2 lg:col-start-6 lg:row-start-3"; // Bricks Landing - large right
+    return "lg:col-span-6";
   };
 
   return (
@@ -64,12 +69,6 @@ function BentoCard({ project, index }: { project: ProjectType; index: number }) 
 
       {/* Content */}
       <div className="relative h-full p-6 flex flex-col justify-end">
-        {/* Featured Badge */}
-        {project.featured && (
-          <span className="absolute top-4 left-4 swiss-label text-swiss-accent">
-            Featured
-          </span>
-        )}
 
         {/* External Link */}
         {project.link && (

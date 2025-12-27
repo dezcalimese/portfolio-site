@@ -1,7 +1,8 @@
 import React from "react";
 import nekoImg from "@/public/neko-app.png";
-import brxlandingpageImg from "@/public/brx-landing-page.png";
+import bricksRealEstateImg from "@/public/bricks-real-estate.png";
 import brxexchangeImg from "@/public/brx-exchange.png";
+import brxlandingpageImg from "@/public/brx-landing-page.png";
 import mintingmelodiesImg from "@/public/minting-melodies.png";
 import rsvpappImg from "@/public/rsvp-app.png";
 
@@ -25,6 +26,10 @@ export const links = [
   {
     name: "Experience",
     hash: "#experience",
+  },
+  {
+    name: "OSS",
+    hash: "#contributions",
   },
   {
     name: "Contact",
@@ -73,34 +78,25 @@ export const projectsData = [
     description:
       "DeFi protocol interface featuring token swaps, perpetual trading, vault deposits, and portfolio tracking. Modern dark UI with real-time data.",
     tags: ["React", "Next.js", "TypeScript", "Tailwind", "Web3"],
-    imageUrl: nekoImg, 
+    imageUrl: nekoImg,
     featured: true,
     link: "https://app.neko.fun",
   },
   {
-    title: "Bricks Exchange",
+    title: "Bricks Real Estate",
+    description:
+      "Fractional real estate trading platform enabling users to buy and sell shares of properties on-chain with wallet integration.",
+    tags: ["React", "Next.js", "Tailwind", "Wagmi", "Viem"],
+    imageUrl: bricksRealEstateImg,
+    featured: true,
+    link: "https://www.bricks.realestate",
+  },
+  {
+    title: "Bricks Exchange MVP",
     description:
       "Decentralized exchange UI for swapping USDC for BRX, staking tokens, and managing balances.",
     tags: ["React", "Next.js", "Tailwind", "Wagmi", "Viem"],
     imageUrl: brxexchangeImg,
-    featured: true,
-    link: null,
-  },
-  {
-    title: "Bricks Landing",
-    description:
-      "Marketing landing page for Bricks Exchange with company information and features.",
-    tags: ["React", "Next.js", "Tailwind"],
-    imageUrl: brxlandingpageImg,
-    featured: false,
-    link: "https://brx.exchange",
-  },
-  {
-    title: "Minting Melodies",
-    description:
-      "NFT marketplace for artists to sell downloadable song collections as digital collectibles.",
-    tags: ["React", "Next.js", "Redux", "Thirdweb"],
-    imageUrl: mintingmelodiesImg,
     featured: false,
     link: null,
   },
@@ -112,6 +108,24 @@ export const projectsData = [
     imageUrl: rsvpappImg,
     featured: false,
     link: null,
+  },
+  {
+    title: "Minting Melodies",
+    description:
+      "NFT marketplace for artists to sell downloadable song collections as digital collectibles.",
+    tags: ["React", "Next.js", "Redux", "Thirdweb"],
+    imageUrl: mintingmelodiesImg,
+    featured: false,
+    link: null,
+  },
+  {
+    title: "Bricks Landing",
+    description:
+      "Marketing landing page for Bricks Exchange with company information and features.",
+    tags: ["React", "Next.js", "Tailwind"],
+    imageUrl: brxlandingpageImg,
+    featured: false,
+    link: "https://brx.exchange",
   },
 ] as const;
 
@@ -136,4 +150,17 @@ export const skillsData = [
   "Viem",
   "Thirdweb",
   "Framer Motion",
+] as const;
+
+export const contributionsData = [
+  {
+    title: "Lit Protocol Plugin",
+    repo: "elizaOS/eliza",
+    description:
+      "Built a comprehensive plugin enabling blockchain interactions through Lit Protocol's Programmable Key Pairs (PKPs). Features dual-chain wallet management for EVM and Solana, secure transaction signing, and automated PKP lifecycle management.",
+    tags: ["TypeScript", "Lit Protocol", "EVM", "Solana"],
+    prNumber: 2703,
+    prLink: "https://github.com/elizaOS/eliza/pull/2703",
+    merged: true,
+  },
 ] as const;
