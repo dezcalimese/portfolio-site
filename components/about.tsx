@@ -22,32 +22,38 @@ export default function About() {
 
       <div className="space-y-6 swiss-body text-swiss-text-secondary leading-relaxed">
         <p>
-          After discovering the transformative potential of decentralized
-          applications, I committed to mastering blockchain development. I
-          enrolled in two intensive bootcamps simultaneously:{" "}
-          <span className="text-swiss-text font-medium">NuCamp</span> for backend
-          development with Python, SQL, and DevOps, and{" "}
-          <span className="text-swiss-text font-medium">ConsenSys Academy</span>{" "}
-          for blockchain fundamentals.
-        </p>
-
-        <p>
-          What drives me is the problem-solving aspect of engineering. There's
-          nothing quite like the moment a complex solution clicks into place. My
-          core stack includes{" "}
+          I&apos;m a blockchain engineer with{" "}
+          <span className="text-swiss-text font-medium">5 years</span> of
+          experience and founding roles at early-stage companies. My work spans{" "}
           <span className="text-swiss-text font-medium">
-            React, Next.js, TypeScript, and Solidity
+            ERC-4626 vault architectures
           </span>
-          , complemented by Python, Rust, and Move for systems-level work.
+          , multi-chain AI agent systems, perpetual futures platforms on
+          Hyperliquid, and cross-chain transaction infrastructure built on
+          threshold cryptography.
         </p>
 
         <p>
-          Outside of coding, I analyze crypto markets, dive deep into DeFi
-          metrics, create music, and explore{" "}
+          As a <span className="text-swiss-text font-medium">Founding Engineer</span>{" "}
+          at Omo Protocol, I led smart contract development, frontend
+          engineering, and AI agent integrations — work that helped secure over{" "}
+          <span className="text-swiss-text font-medium">$1M in pre-seed</span>{" "}
+          funding. I recently completed the{" "}
+          <span className="text-swiss-text font-medium">
+            Rektoff × Solana Foundation Rust Security Bootcamp
+          </span>
+          , adding formal Solana/Anchor audit methodology to a background in
+          smart-contract security and full-stack development.
+        </p>
+
+        <p>
+          What drives me is taking products from zero to one under ambiguity —
+          and the moment a complex solution clicks into place. Outside of
+          engineering I analyze DeFi markets, make music, and explore{" "}
           <span className="text-swiss-text font-medium">
             audioreactive and 3D art
           </span>
-          . I'm always learning something new.
+          .
         </p>
       </div>
     </motion.section>

@@ -16,10 +16,10 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto px-4">
         <SectionHeading>Projects</SectionHeading>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 auto-rows-[280px]">
+        {/* Editorial grid: alternating 2:1 / 1:2 rhythm across 3 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[300px]">
           {projectsData.map((project, index) => (
-            <BentoCard key={index} project={project} index={index} />
+            <BentoCard key={project.title} project={project} index={index} />
           ))}
         </div>
       </div>
@@ -30,73 +30,68 @@ export default function Projects() {
 type ProjectType = (typeof projectsData)[number];
 
 function BentoCard({ project, index }: { project: ProjectType; index: number }) {
-  // Grid layout:
-  // Top: Large left (7 cols, 2 rows) + two stacked right (5 cols each)
-  // Bottom: Two stacked left (5 cols each) + large right (7 cols, 2 rows) - mirrored
-  const getGridClass = () => {
-    if (index === 0) return "lg:col-span-7 lg:row-span-2"; // Neko - large left
-    if (index === 1) return "lg:col-span-5"; // Bricks Real Estate - top right
-    if (index === 2) return "lg:col-span-5"; // Bricks Exchange MVP - bottom right (stacked)
-    // Bottom section - mirrored pattern
-    if (index === 3) return "lg:col-span-5 lg:row-start-3"; // RSVP - top left
-    if (index === 4) return "lg:col-span-5 lg:row-start-4"; // Minting Melodies - bottom left (stacked)
-    if (index === 5) return "lg:col-span-7 lg:row-span-2 lg:col-start-6 lg:row-start-3"; // Bricks Landing - large right
-    return "lg:col-span-6";
-  };
+  const span = project.span === 2 ? "md:col-span-2" : "md:col-span-1";
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
       viewport={{ once: true }}
-      className={`group relative overflow-hidden rounded-2xl bg-swiss-card border border-swiss-border hover:border-swiss-accent transition-all duration-300 ${getGridClass()}`}
+      className={`group relative overflow-hidden rounded-2xl bg-swiss-card border border-swiss-border hover:border-swiss-accent transition-all duration-300 ${span}`}
     >
-      {/* Background Image or Gradient */}
+      {/* Background image, or a monochrome topographic fallback */}
       {project.imageUrl ? (
         <div className="absolute inset-0">
           <Image
             src={project.imageUrl}
             alt={project.title}
             fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover object-top opacity-50 dark:opacity-30 group-hover:opacity-60 dark:group-hover:opacity-40 group-hover:scale-105 transition-all duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-swiss-card via-swiss-card/60 to-transparent dark:via-swiss-card/80" />
         </div>
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-swiss-accent/10 via-transparent to-swiss-bg-secondary" />
+        <div className="absolute inset-0 overflow-hidden">
+          {/* faint contour-style rings to echo the topographic theme */}
+          <div
+            className="absolute -inset-1/4 opacity-[0.18] group-hover:opacity-30 transition-opacity duration-500"
+            style={{
+              backgroundImage:
+                "repeating-radial-gradient(circle at 70% 20%, var(--color-text) 0 1px, transparent 1px 26px)",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-swiss-accent/10 via-transparent to-swiss-bg-secondary" />
+        </div>
       )}
 
       {/* Content */}
       <div className="relative h-full p-6 flex flex-col justify-end">
-
-        {/* External Link */}
         {project.link && (
           <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Open ${project.title}`}
             className="absolute top-4 right-4 w-10 h-10 rounded-full bg-swiss-text/5 flex items-center justify-center hover:bg-swiss-accent hover:text-white transition-all duration-300 group-hover:scale-110"
           >
             <HiArrowUpRight className="w-4 h-4" />
           </a>
         )}
 
-        {/* Title */}
         <h3 className="swiss-heading text-xl md:text-2xl mb-2 group-hover:text-swiss-accent transition-colors">
           {project.title}
         </h3>
 
-        {/* Description */}
-        <p className="swiss-body text-swiss-text-secondary text-sm mb-4 line-clamp-2">
+        <p className="swiss-body text-swiss-text-secondary text-sm mb-4 line-clamp-3">
           {project.description}
         </p>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-2">
-          {project.tags.map((tag, tagIndex) => (
+          {project.tags.map((tag) => (
             <span
-              key={tagIndex}
+              key={tag}
               className="px-3 py-1 text-xs font-medium bg-swiss-text/5 rounded-full text-swiss-text-secondary"
             >
               {tag}
@@ -105,7 +100,6 @@ function BentoCard({ project, index }: { project: ProjectType; index: number }) 
         </div>
       </div>
 
-      {/* Hover Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-swiss-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
     </motion.div>
   );

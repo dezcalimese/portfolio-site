@@ -19,8 +19,23 @@ export default function Intro() {
       id="home"
       className="mb-28 max-w-4xl mx-auto px-4 sm:mb-40 scroll-mt-[100rem]"
     >
-      {/* Profile & Intro */}
       <div className="flex flex-col items-center text-center">
+        {/* Location / coordinate tag — ties to the topographic NYC map */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 flex items-center gap-2 rounded-full border border-swiss-border bg-swiss-bg/50 backdrop-blur-sm px-4 py-1.5"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+          </span>
+          <span className="font-mono text-xs tracking-wider text-swiss-text-secondary">
+            NEW YORK, NY · 40.7128° N, 74.0060° W
+          </span>
+        </motion.div>
+
         {/* Avatar */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -36,10 +51,9 @@ export default function Intro() {
               height={120}
               quality={95}
               priority={true}
-              className="h-28 w-28 rounded-full object-cover border-4 border-swiss-card shadow-lg"
+              className="h-24 w-24 rounded-full object-cover border-4 border-swiss-card shadow-lg"
             />
-            {/* Status indicator */}
-            <span className="absolute bottom-1 right-1 w-6 h-6 bg-green-500 rounded-full border-4 border-swiss-bg" />
+            <span className="absolute bottom-1 right-1 w-5 h-5 bg-green-500 rounded-full border-4 border-swiss-bg" />
           </div>
         </motion.div>
 
@@ -50,13 +64,13 @@ export default function Intro() {
           transition={{ delay: 0.1, duration: 0.5 }}
           className="mb-6"
         >
-          <h1 className="swiss-heading text-4xl sm:text-5xl md:text-6xl mb-4">
+          <h1 className="swiss-heading text-5xl sm:text-6xl md:text-7xl mb-4">
             Dez Calimese
           </h1>
           <div className="flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-swiss-accent" />
             <span className="swiss-label text-swiss-accent">
-              Full-Stack Blockchain Developer
+              Blockchain Security Engineer · Full-Stack Builder
             </span>
             <span className="h-px w-8 bg-swiss-accent" />
           </div>
@@ -69,12 +83,13 @@ export default function Intro() {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="swiss-body text-lg sm:text-xl text-swiss-text-secondary max-w-2xl mb-10 leading-relaxed"
         >
-          Building decentralized applications and modern web interfaces.{" "}
-          <span className="text-swiss-text font-medium">4 years</span> of
-          experience crafting user-centric experiences with{" "}
-          <span className="text-swiss-text font-medium">React</span>,{" "}
-          <span className="text-swiss-text font-medium">Next.js</span>, and{" "}
-          <span className="text-swiss-text font-medium">Web3</span> technologies.
+          I build and audit production-grade DeFi infrastructure across{" "}
+          <span className="text-swiss-text font-medium">EVM and Solana</span> —
+          from <span className="text-swiss-text font-medium">ERC-4626 vaults</span>{" "}
+          and Hyperliquid perps to multi-chain AI agents secured with threshold
+          cryptography.{" "}
+          <span className="text-swiss-text font-medium">5 years</span> taking
+          products from zero to one under ambiguity.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -86,13 +101,13 @@ export default function Intro() {
         >
           <Link
             href="#contact"
-            className="group flex items-center gap-2 px-7 py-3.5 bg-swiss-text text-swiss-bg rounded-full font-medium hover:bg-swiss-accent transition-all duration-300 hover:scale-105"
+            className="group flex items-center gap-2 px-7 py-3.5 bg-swiss-text text-swiss-bg rounded-full font-medium hover:bg-swiss-accent hover:text-white transition-all duration-300 hover:scale-105"
             onClick={() => {
               setActiveSection("Contact");
               setTimeOfLastClick(Date.now());
             }}
           >
-            Contact Me
+            Get in touch
             <BsArrowRight className="group-hover:translate-x-1 transition-transform" />
           </Link>
 

@@ -4,6 +4,7 @@ import Contributions from "@/components/contributions";
 import Experience from "@/components/experience";
 import Intro from "@/components/intro";
 import Projects from "@/components/projects";
+import Security from "@/components/security";
 import Skills from "@/components/skills";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <Intro />
       <About />
       <Projects />
+      <Security />
       <Skills />
       <Experience />
       <Contributions />

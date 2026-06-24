@@ -7,8 +7,8 @@ import { Toaster } from "react-hot-toast";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import ThemeContextProvider from "@/context/theme-content";
 
-const GradientBackground = dynamic(
-  () => import("@/components/gradient-background"),
+const TopographicBackground = dynamic(
+  () => import("@/components/topographic-background"),
   { ssr: false }
 );
 
@@ -19,7 +19,7 @@ export default function LayoutClient({
 }) {
   return (
     <ThemeContextProvider>
-      <GradientBackground />
+      <TopographicBackground />
 
       <ActiveSectionContextProvider>
         <Header />
