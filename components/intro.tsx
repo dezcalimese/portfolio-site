@@ -70,7 +70,7 @@ export default function Intro() {
           <div className="flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-swiss-accent" />
             <span className="swiss-label text-swiss-accent">
-              Blockchain Security Engineer · Full-Stack Builder
+              Applied AI · Blockchain Engineer
             </span>
             <span className="h-px w-8 bg-swiss-accent" />
           </div>
@@ -83,11 +83,13 @@ export default function Intro() {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="swiss-body text-lg sm:text-xl text-swiss-text-secondary max-w-2xl mb-10 leading-relaxed"
         >
-          I build and audit production-grade DeFi infrastructure across{" "}
-          <span className="text-swiss-text font-medium">EVM and Solana</span> —
-          from <span className="text-swiss-text font-medium">ERC-4626 vaults</span>{" "}
-          and Hyperliquid perps to multi-chain AI agents secured with threshold
-          cryptography.{" "}
+          I build{" "}
+          <span className="text-swiss-text font-medium">agent-driven products</span>{" "}
+          and the infrastructure they run on — from MCP integrations and
+          multi-chain AI agents secured with threshold cryptography to{" "}
+          <span className="text-swiss-text font-medium">ERC-4626 vaults</span>{" "}
+          and audited DeFi protocols across{" "}
+          <span className="text-swiss-text font-medium">EVM and Solana</span>.{" "}
           <span className="text-swiss-text font-medium">5 years</span> taking
           products from zero to one under ambiguity.
         </motion.p>
@@ -113,8 +115,8 @@ export default function Intro() {
 
           <a
             className="group flex items-center gap-2 px-7 py-3.5 bg-swiss-card border border-swiss-border rounded-full font-medium hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300 hover:scale-105"
-            href="/dez-calimese-resume.pdf"
-            download
+            href="/dez-calimese-resume-fde.pdf"
+            download="dez-calimese-resume.pdf"
           >
             Resume
             <HiDownload className="group-hover:translate-y-0.5 transition-transform" />

@@ -34,11 +34,23 @@ export default function About() {
         </p>
 
         <p>
-          As a <span className="text-swiss-text font-medium">Founding Engineer</span>{" "}
+          I&apos;m a co-founder of{" "}
+          <span className="text-swiss-text font-medium">Quincy Labs</span>, an AI
+          and blockchain research collective and studio building agent-driven
+          products across DeFi, cryptography, and applied AI — where I build MCP
+          integrations over an 8-year research base and lead engineering on{" "}
+          <span className="text-swiss-text font-medium">Emergency Passport</span>
+          , an AI-native app surfacing critical patient context during sickle
+          cell crises. Alongside it, as a{" "}
+          <span className="text-swiss-text font-medium">Founding Engineer</span>{" "}
           at Omo Protocol, I led smart contract development, frontend
           engineering, and AI agent integrations — work that helped secure over{" "}
           <span className="text-swiss-text font-medium">$1M in pre-seed</span>{" "}
-          funding. I recently completed the{" "}
+          funding.
+        </p>
+
+        <p>
+          I recently completed the{" "}
           <span className="text-swiss-text font-medium">
             Rektoff × Solana Foundation Rust Security Bootcamp
           </span>

@@ -18,10 +18,10 @@ export default function Experience() {
         {/* Horizontal Timeline */}
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute top-[2.25rem] left-0 right-0 h-px bg-swiss-border hidden md:block" />
+          <div className="absolute top-[2.25rem] left-0 right-0 h-px bg-swiss-border hidden lg:block" />
 
           {/* Timeline items */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-4">
             {experiencesData.map((item, index) => (
               <TimelineItem key={index} item={item} index={index} />
             ))}
@@ -52,7 +52,7 @@ function TimelineItem({
       className="relative"
     >
       {/* Timeline node */}
-      <div className="hidden md:flex justify-center mb-4">
+      <div className="hidden lg:flex justify-center mb-4">
         <div className="w-10 h-10 rounded-full bg-swiss-card border-2 border-swiss-border flex items-center justify-center z-10 group-hover:border-swiss-accent transition-colors">
           {isEducation ? (
             <HiAcademicCap className="w-4 h-4 text-swiss-accent" />
@@ -65,7 +65,7 @@ function TimelineItem({
       {/* Content Card */}
       <div className="group p-5 rounded-xl bg-swiss-card border border-swiss-border hover:border-swiss-accent transition-all duration-300 h-full">
         {/* Mobile icon */}
-        <div className="flex md:hidden items-center gap-3 mb-3">
+        <div className="flex lg:hidden items-center gap-3 mb-3">
           <div className="w-8 h-8 rounded-full bg-swiss-accent/10 flex items-center justify-center">
             {isEducation ? (
               <HiAcademicCap className="w-4 h-4 text-swiss-accent" />
@@ -77,7 +77,7 @@ function TimelineItem({
         </div>
 
         {/* Date - Desktop */}
-        <span className="hidden md:block swiss-label text-swiss-accent mb-2">
+        <span className="hidden lg:block swiss-label text-swiss-accent mb-2">
           {item.date}
         </span>
 

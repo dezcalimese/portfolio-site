@@ -4,9 +4,9 @@ import { GeistMono } from "geist/font/mono";
 import LayoutClient from "@/components/layout-client";
 
 export const metadata = {
-  title: "Dez Calimese | Blockchain Security Engineer",
+  title: "Dez Calimese | Applied AI & Blockchain Engineer",
   description:
-    "Dez Calimese is a blockchain security engineer and full-stack builder with 5 years of experience auditing and shipping production-grade DeFi infrastructure across EVM and Solana.",
+    "Dez Calimese is an applied AI and blockchain engineer with 5 years of experience building agent-driven products, integrating third-party AI and crypto infrastructure, and auditing production-grade DeFi protocols across EVM and Solana.",
 };
 
 export default function RootLayout({
