@@ -1,3 +1,4 @@
+import quincyLabsImg from "@/public/quincy-labs-dark.png";
 import nekoImg from "@/public/neko-app.png";
 import bricksRealEstateImg from "@/public/bricks-real-estate.png";
 import brxexchangeImg from "@/public/brx-exchange.png";
@@ -41,6 +42,14 @@ export const links = [
 
 export const experiencesData = [
   {
+    title: "Founder",
+    company: "Quincy Labs",
+    description:
+      "Co-founded an AI and blockchain research collective and studio building agent-driven products across DeFi, cryptography, and applied AI. Built MCP integrations surfacing insights from a 500+ channel, 8-year research base to power agentic workflows, and maintain deployment infrastructure across the collective (Docker, AWS, CI/CD). Contributing engineering and leading UI/UX on Emergency Passport (Red Cell Systems), an AI-native app surfacing critical patient context during sickle cell crises.",
+    date: "2018 — Present",
+    type: "work" as const,
+  },
+  {
     title: "Founding Engineer",
     company: "Omo Protocol",
     description:
@@ -76,13 +85,13 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "Neko DeFi",
+    title: "Quincy Labs",
     description:
-      "DeFi protocol interface featuring token swaps, perpetual trading, vault deposits, and portfolio tracking. Modern dark UI with real-time on-chain data.",
-    tags: ["React", "Next.js", "TypeScript", "Web3"],
-    imageUrl: nekoImg,
+      "Research lab site for an AI infrastructure company building agent-native systems across memory, inference, GPU/edge workloads, blockchain settlement, and healthcare intelligence.",
+    tags: ["Next.js", "TypeScript", "Tailwind"],
+    imageUrl: quincyLabsImg,
     span: 2,
-    link: null,
+    link: "https://www.quincylabs.org",
   },
   {
     title: "Tessera",
@@ -92,6 +101,15 @@ export const projectsData = [
     imageUrl: null,
     span: 1,
     link: "https://github.com/dezcalimese",
+  },
+  {
+    title: "Neko DeFi",
+    description:
+      "DeFi protocol interface featuring token swaps, perpetual trading, vault deposits, and portfolio tracking. Modern dark UI with real-time on-chain data.",
+    tags: ["React", "Next.js", "TypeScript", "Web3"],
+    imageUrl: nekoImg,
+    span: 2,
+    link: null,
   },
   {
     title: "Bricks Exchange MVP",
@@ -112,21 +130,21 @@ export const projectsData = [
     link: "https://www.bricks.realestate",
   },
   {
-    title: "Minting Melodies",
-    description:
-      "NFT marketplace for artists to sell downloadable song collections as digital collectibles, with automated royalty splits.",
-    tags: ["React", "Next.js", "Redux", "Thirdweb"],
-    imageUrl: mintingmelodiesImg,
-    span: 2,
-    link: null,
-  },
-  {
     title: "RSVP dApp",
     description:
       "Decentralized event management app for creating and RSVPing to events fully on-chain.",
     tags: ["React", "Next.js", "Wagmi", "Ethers"],
     imageUrl: rsvpappImg,
     span: 1,
+    link: null,
+  },
+  {
+    title: "Minting Melodies",
+    description:
+      "NFT marketplace for artists to sell downloadable song collections as digital collectibles, with automated royalty splits.",
+    tags: ["React", "Next.js", "Redux", "Thirdweb"],
+    imageUrl: mintingmelodiesImg,
+    span: 2,
     link: null,
   },
 ] as const;
