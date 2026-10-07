@@ -61,7 +61,7 @@ export default function Intro() {
               delay={0.1}
               className="col-span-12 md:col-start-7 md:col-span-5 body-lg"
             >
-              Applied AI and blockchain engineer in New York. Five years taking
+              Applied AI and blockchain engineer in New York City. Five years taking
               products from zero to one: multi-chain AI agents secured with
               threshold cryptography, ERC-4626 vaults, and security-reviewed
               DeFi integrations across EVM and Solana.
