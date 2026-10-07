@@ -1,4 +1,5 @@
 import "./globals.css";
+import type { Metadata } from "next";
 import { Instrument_Serif, Inter_Tight } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import LayoutClient from "@/components/layout-client";
@@ -16,10 +17,27 @@ const sans = Inter_Tight({
   variable: "--font-sans",
 });
 
-export const metadata = {
-  title: "Dez Calimese | Applied AI & Blockchain Engineer",
-  description:
-    "Dez Calimese is an applied AI and blockchain engineer with 5 years of experience building agent-driven products, integrating third-party AI and crypto infrastructure, and auditing production-grade DeFi protocols across EVM and Solana.",
+const title = "Dez Calimese | Applied AI & Blockchain Engineer";
+const description =
+  "Dez Calimese is an applied AI and blockchain engineer with 5 years of experience building agent-driven products, integrating third-party AI and crypto infrastructure, and auditing production-grade DeFi protocols across EVM and Solana.";
+
+export const metadata: Metadata = {
+  // Absolute base so social crawlers get full image URLs
+  metadataBase: new URL("https://www.dezcalimese.dev"),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    siteName: "Dez Calimese",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
