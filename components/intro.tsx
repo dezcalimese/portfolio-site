@@ -1,155 +1,139 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
-import { HiDownload } from "react-icons/hi";
-import { useActiveSectionContext } from "@/context/active-section-context";
 import { useSectionInView } from "@/lib/hooks";
+import { plates } from "@/lib/data";
+import Image from "next/image";
+import { FadeIn, RevealLine } from "./editorial";
+
+const focus = [
+  "Agent-driven products",
+  "MCP & AI integrations",
+  "Smart contracts & vaults",
+  "Security audits",
+  "DeFi protocols — EVM & Solana",
+];
+
+const elsewhere = [
+  { label: "Resume", href: "/dez-calimese-resume-fde.pdf", download: true },
+  { label: "GitHub", href: "https://github.com/dezcalimese" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/dezcalimese/" },
+  { label: "Email", href: "mailto:dezcalimese@gmail.com" },
+];
 
 export default function Intro() {
-  const { ref } = useSectionInView("Home", 0.5);
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const { ref } = useSectionInView("Home");
+  const plate = plates.Home;
 
   return (
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-4xl mx-auto px-4 sm:mb-40 scroll-mt-[100rem]"
+      className={`theme-${plate.theme} bg-ink-bg text-ink-fg`}
     >
-      <div className="flex flex-col items-center text-center">
-        {/* Location / coordinate tag — ties to the topographic NYC map */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 flex items-center gap-2 rounded-full border border-swiss-border bg-swiss-bg/50 backdrop-blur-sm px-4 py-1.5"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-          </span>
-          <span className="font-mono text-xs tracking-wider text-swiss-text-secondary">
-            NEW YORK, NY · 40.7128° N, 74.0060° W
-          </span>
-        </motion.div>
-
-        {/* Avatar */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mb-8"
-        >
-          <div className="relative">
-            <Image
-              src="/yuji2.jpeg"
-              alt="Dez Calimese"
-              width={120}
-              height={120}
-              quality={95}
-              priority={true}
-              className="h-24 w-24 rounded-full object-cover border-4 border-swiss-card shadow-lg"
-            />
-            <span className="absolute bottom-1 right-1 w-5 h-5 bg-green-500 rounded-full border-4 border-swiss-bg" />
+      {/* First screen: the plate sits behind the name, washed in paper so the ink reads */}
+      <div className="relative overflow-hidden">
+        <Image
+          src={plate.src}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, color-mix(in srgb, var(--bg) 82%, transparent), color-mix(in srgb, var(--bg) 45%, transparent) 55%, color-mix(in srgb, var(--bg) 30%, transparent))",
+          }}
+        />
+        <div className="relative mx-auto max-w-page px-5 sm:px-8 flex flex-col justify-between md:h-[100svh] md:min-h-[640px] pt-28 sm:pt-32 md:pt-48 pb-6 sm:pb-8">
+          {/* Quote + bio, Gareis-style: small at the far left, body from the middle */}
+          <div className="grid grid-cols-12 gap-x-5 gap-y-10">
+            <FadeIn className="col-span-12 md:col-span-4 flex gap-4">
+              <span className="font-serif text-xl leading-none">&ldquo;</span>
+              <p className="font-serif italic text-lg leading-[1.15] max-w-[14rem]">
+                Agents, protocols, and the infrastructure between them.
+              </p>
+            </FadeIn>
+            <FadeIn
+              delay={0.1}
+              className="col-span-12 md:col-start-7 md:col-span-5 body-lg"
+            >
+              Applied AI and blockchain engineer in New York. Five years taking
+              products from zero to one: multi-chain AI agents secured with
+              threshold cryptography, ERC-4626 vaults, and security-reviewed
+              DeFi integrations across EVM and Solana.
+            </FadeIn>
           </div>
-        </motion.div>
 
-        {/* Name & Role */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          className="mb-6"
-        >
-          <h1 className="swiss-heading text-5xl sm:text-6xl md:text-7xl mb-4">
-            Dez Calimese
-          </h1>
-          <div className="flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-swiss-accent" />
-            <span className="swiss-label text-swiss-accent">
-              Applied AI · Blockchain Engineer
+          {/* The name is the hero image; focus + links sit in the space beside DEZ */}
+          <h1 className="sr-only">Dez Calimese</h1>
+          <div className="display uppercase mt-16 text-[19.5vw] md:text-[length:min(19.5vw,17rem,calc((100svh_-_29rem)/1.6))] leading-[0.8]"
+          >
+            <div className="grid grid-cols-12 gap-x-5 items-center">
+              <span aria-hidden className="col-span-12 md:col-span-6">
+                <RevealLine onLoad>Dez</RevealLine>
+              </span>
+              <FadeIn
+                delay={0.2}
+                className="hidden md:block md:col-span-3 font-sans normal-case tracking-normal body-lg leading-[1.3] pb-[0.08em]"
+              >
+                <Focus />
+              </FadeIn>
+              <FadeIn
+                delay={0.25}
+                className="hidden md:block md:col-span-3 font-sans normal-case tracking-normal body-lg leading-[1.3] pb-[0.08em]"
+              >
+                <Elsewhere />
+              </FadeIn>
+            </div>
+            <span aria-hidden className="block text-right">
+              <RevealLine onLoad delay={0.12}>Calimese</RevealLine>
             </span>
-            <span className="h-px w-8 bg-swiss-accent" />
           </div>
-        </motion.div>
 
-        {/* Bio */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="swiss-body text-lg sm:text-xl text-swiss-text-secondary max-w-2xl mb-10 leading-relaxed"
-        >
-          I build{" "}
-          <span className="text-swiss-text font-medium">agent-driven products</span>{" "}
-          and the infrastructure they run on — from MCP integrations and
-          multi-chain AI agents secured with threshold cryptography to{" "}
-          <span className="text-swiss-text font-medium">ERC-4626 vaults</span>{" "}
-          and audited DeFi protocols across{" "}
-          <span className="text-swiss-text font-medium">EVM and Solana</span>.{" "}
-          <span className="text-swiss-text font-medium">5 years</span> taking
-          products from zero to one under ambiguity.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3"
-        >
-          <Link
-            href="#contact"
-            className="group flex items-center gap-2 px-7 py-3.5 bg-swiss-text text-swiss-bg rounded-full font-medium hover:bg-swiss-accent hover:text-white transition-all duration-300 hover:scale-105"
-            onClick={() => {
-              setActiveSection("Contact");
-              setTimeOfLastClick(Date.now());
-            }}
-          >
-            Get in touch
-            <BsArrowRight className="group-hover:translate-x-1 transition-transform" />
-          </Link>
-
-          <a
-            className="group flex items-center gap-2 px-7 py-3.5 bg-swiss-card border border-swiss-border rounded-full font-medium hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300 hover:scale-105"
-            href="/dez-calimese-resume-fde.pdf"
-            download="dez-calimese-resume.pdf"
-          >
-            Resume
-            <HiDownload className="group-hover:translate-y-0.5 transition-transform" />
-          </a>
-        </motion.div>
-
-        {/* Social Links */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="flex items-center gap-3 mt-6"
-        >
-          <a
-            className="w-11 h-11 flex items-center justify-center rounded-full bg-swiss-card border border-swiss-border text-swiss-text-secondary hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300 hover:scale-110"
-            href="https://www.linkedin.com/in/dezcalimese/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <BsLinkedin className="w-5 h-5" />
-          </a>
-          <a
-            className="w-11 h-11 flex items-center justify-center rounded-full bg-swiss-card border border-swiss-border text-swiss-text-secondary hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300 hover:scale-110"
-            href="https://github.com/dezcalimese"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <BsGithub className="w-5 h-5" />
-          </a>
-        </motion.div>
+          {/* Small screens: lists drop below the name */}
+          <div className="md:hidden mt-10 grid grid-cols-2 gap-x-5 body">
+            <Focus />
+            <Elsewhere />
+          </div>
+        </div>
       </div>
     </section>
+  );
+}
+
+function Focus() {
+  return (
+    <ul>
+      {focus.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
+function Elsewhere() {
+  return (
+    <ul>
+      {elsewhere.map((item) => (
+        <li key={item.label}>
+          <a
+            href={item.href}
+            {...(item.download
+              ? { download: "dez-calimese-resume.pdf" }
+              : item.href.startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+            className="link-underline"
+          >
+            {item.label}
+          </a>{" "}
+          <span className="text-ink-muted">↗</span>
+        </li>
+      ))}
+    </ul>
   );
 }

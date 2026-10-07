@@ -1,70 +1,77 @@
 "use client";
 
 import React from "react";
-import SectionHeading from "./section-heading";
-import { motion } from "framer-motion";
-import { useSectionInView } from "@/lib/hooks";
+import toast from "react-hot-toast";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitButton from "./submit-button";
-import toast from "react-hot-toast";
+import { FadeIn, Plate, RevealLine, Section, WIDE } from "./editorial";
+
+const fieldClass =
+  "w-full bg-transparent border-0 border-b border-ink-rule px-0 py-3 body-lg text-ink-fg placeholder:text-ink-muted focus:border-ink-fg focus:outline-none focus-visible:outline-none transition-colors";
 
 export default function Contact() {
-  const { ref } = useSectionInView("Contact");
-
   return (
-    <motion.section
-      id="contact"
-      ref={ref}
-      className="mb-20 sm:mb-28 max-w-xl mx-auto px-4"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <SectionHeading>Contact</SectionHeading>
+    <Section id="contact" name="Contact" className="border-t border-ink-rule">
+      <h2 className="display text-[clamp(3.5rem,13vw,13rem)]">
+        <RevealLine>Let&apos;s build</RevealLine>
+        <RevealLine delay={0.1} className="text-right italic">
+          something
+        </RevealLine>
+      </h2>
 
-      <p className="text-center text-swiss-text-secondary mb-8">
-        Reach out directly at{" "}
-        <a
-          className="text-swiss-accent hover:underline font-medium"
-          href="mailto:dezcalimese@gmail.com"
-        >
-          dezcalimese@gmail.com
-        </a>{" "}
-        or use the form below.
-      </p>
-
-      <form
-        className="space-y-4"
-        action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
-
-          if (error) {
-            toast.error(error);
-            return;
-          }
-
-          toast.success("Message sent successfully!");
-        }}
-      >
-        <input
-          className="w-full h-14 px-4 bg-swiss-card border border-swiss-border rounded-lg text-swiss-text placeholder:text-swiss-text-secondary/50 focus:border-swiss-accent focus:outline-none transition-colors"
-          name="senderEmail"
-          type="email"
-          autoComplete="off"
-          required
-          maxLength={500}
-          placeholder="Your email"
+      <div className="mt-20 sm:mt-28 grid grid-cols-12 gap-x-5 gap-y-14">
+        <Plate
+          name="Contact"
+          aspect={WIDE}
+          sizes="100vw"
+          className="col-span-12"
         />
-        <textarea
-          className="w-full h-48 p-4 bg-swiss-card border border-swiss-border rounded-lg text-swiss-text placeholder:text-swiss-text-secondary/50 focus:border-swiss-accent focus:outline-none transition-colors resize-none"
-          name="message"
-          placeholder="Your message..."
-          required
-          maxLength={5000}
-        />
-        <SubmitButton />
-      </form>
-    </motion.section>
+
+        <FadeIn className="col-span-12 md:col-start-7 md:col-span-6">
+          <p className="label text-ink-muted mb-3">Write directly</p>
+          <a
+            href="mailto:dezcalimese@gmail.com"
+            className="font-serif text-[clamp(1.75rem,3.4vw,3rem)] leading-none link-underline"
+          >
+            dezcalimese@gmail.com
+          </a>
+
+          <form
+            className="mt-14 space-y-6"
+            action={async (formData) => {
+              const { error } = await sendEmail(formData);
+
+              if (error) {
+                toast.error(error);
+                return;
+              }
+
+              toast.success("Message sent — talk soon.");
+            }}
+          >
+            <p className="label text-ink-muted">Or leave a note</p>
+            <input
+              className={fieldClass}
+              name="senderEmail"
+              type="email"
+              autoComplete="email"
+              required
+              maxLength={500}
+              placeholder="Your email"
+              aria-label="Your email"
+            />
+            <textarea
+              className={`${fieldClass} h-36 resize-none`}
+              name="message"
+              placeholder="Your message"
+              aria-label="Your message"
+              required
+              maxLength={5000}
+            />
+            <SubmitButton />
+          </form>
+        </FadeIn>
+      </div>
+    </Section>
   );
 }

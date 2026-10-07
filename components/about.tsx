@@ -1,73 +1,71 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import SectionHeading from "./section-heading";
-import { useSectionInView } from "@/lib/hooks";
+import { FadeIn, Plate, Section, SectionHead } from "./editorial";
 
 export default function About() {
-  const { ref } = useSectionInView("About");
-
   return (
-    <motion.section
-      ref={ref}
-      className="mb-28 max-w-3xl mx-auto px-4 scroll-mt-28 sm:mb-40"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      id="about"
-    >
-      <SectionHeading>About</SectionHeading>
+    <Section id="about" name="About">
+      <SectionHead title="About" />
 
-      <div className="space-y-6 swiss-body text-swiss-text-secondary leading-relaxed">
-        <p>
-          I&apos;m a blockchain engineer with{" "}
-          <span className="text-swiss-text font-medium">5 years</span> of
-          experience and founding roles at early-stage companies. My work spans{" "}
-          <span className="text-swiss-text font-medium">
-            ERC-4626 vault architectures
-          </span>
-          , multi-chain AI agent systems, perpetual futures platforms on
-          Hyperliquid, and cross-chain transaction infrastructure built on
-          threshold cryptography.
-        </p>
+      <div className="grid grid-cols-12 gap-x-5 gap-y-14">
+        <div className="col-span-12 md:col-span-6">
+          <FadeIn>
+            <p className="font-serif text-[clamp(1.75rem,3.2vw,2.75rem)] leading-[1.08] tracking-[-0.01em]">
+              Five years on founding teams, building AI agents, DeFi
+              infrastructure, and the security work that keeps them safe.
+            </p>
+          </FadeIn>
 
-        <p>
-          I&apos;m a co-founder of{" "}
-          <span className="text-swiss-text font-medium">Quincy Labs</span>, an AI
-          and blockchain research collective and studio building agent-driven
-          products across DeFi, cryptography, and applied AI — where I build MCP
-          integrations over an 8-year research base and lead engineering on{" "}
-          <span className="text-swiss-text font-medium">Emergency Passport</span>
-          , an AI-native app surfacing critical patient context during sickle
-          cell crises. Alongside it, as a{" "}
-          <span className="text-swiss-text font-medium">Founding Engineer</span>{" "}
-          at Omo Protocol, I led smart contract development, frontend
-          engineering, and AI agent integrations — work that helped secure over{" "}
-          <span className="text-swiss-text font-medium">$1M in pre-seed</span>{" "}
-          funding.
-        </p>
+          <div className="mt-14 grid grid-cols-6 gap-x-5 gap-y-8 body text-ink-muted">
+            <FadeIn className="col-span-6 sm:col-span-3">
+              <p className="label text-ink-fg mb-3">Now</p>
+              <p>
+                Co-founder of <span className="text-ink-fg">Quincy Labs</span>,
+                an AI and blockchain research collective and studio. I build
+                MCP integrations over an 8-year research base and lead
+                engineering on{" "}
+                <span className="text-ink-fg">Emergency Passport</span>, an
+                AI-native app surfacing critical patient context during sickle
+                cell crises.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.08} className="col-span-6 sm:col-span-3">
+              <p className="label text-ink-fg mb-3">Before</p>
+              <p>
+                Founding Engineer at Omo Protocol, leading smart contracts,
+                frontend, and AI agent integrations. This work helped secure
+                over <span className="text-ink-fg">$1M in pre-seed</span>.
+                Before that, Lead Frontend Developer at{" "}
+                <span className="text-ink-fg">Bricks Exchange</span>, a real
+                estate tokenization market.
+              </p>
+            </FadeIn>
+            <FadeIn className="col-span-6 sm:col-span-3">
+              <p className="label text-ink-fg mb-3">Security</p>
+              <p>
+                Completed the Rektoff × Solana Foundation Rust Security
+                Bootcamp, adding formal Solana/Anchor audit methodology to a
+                background in smart-contract security. My capstone audit of a
+                Solana lending protocol found multiple high-severity bugs, each
+                with a working exploit.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.08} className="col-span-6 sm:col-span-3">
+              <p className="label text-ink-fg mb-3">Otherwise</p>
+              <p>
+                Outside of engineering I analyze DeFi markets, make music, and
+                explore audioreactive and 3D art.
+              </p>
+            </FadeIn>
+          </div>
+        </div>
 
-        <p>
-          I recently completed the{" "}
-          <span className="text-swiss-text font-medium">
-            Rektoff × Solana Foundation Rust Security Bootcamp
-          </span>
-          , adding formal Solana/Anchor audit methodology to a background in
-          smart-contract security and full-stack development.
-        </p>
-
-        <p>
-          What drives me is taking products from zero to one under ambiguity —
-          and the moment a complex solution clicks into place. Outside of
-          engineering I analyze DeFi markets, make music, and explore{" "}
-          <span className="text-swiss-text font-medium">
-            audioreactive and 3D art
-          </span>
-          .
-        </p>
+        <Plate
+          name="About"
+          className="col-span-12 sm:col-span-8 md:col-start-8 md:col-span-5"
+        />
       </div>
-    </motion.section>
+    </Section>
   );
 }

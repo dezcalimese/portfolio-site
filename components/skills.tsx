@@ -1,51 +1,45 @@
 "use client";
 
 import React from "react";
-import SectionHeading from "./section-heading";
 import { skillCategories } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
-import { motion } from "framer-motion";
+import { FadeIn, Plate, Section, SectionHead, WIDE } from "./editorial";
+
+// The two AI groups stack in the first column; every other category gets its own
+const [aiTools, agents, ...rest] = skillCategories;
+const columns = [[aiTools, agents], ...rest.map((category) => [category])];
 
 export default function Skills() {
-  const { ref } = useSectionInView("Skills");
-
   return (
-    <section
-      id="skills"
-      ref={ref}
-      className="mb-28 max-w-5xl mx-auto px-4 scroll-mt-28 sm:mb-40"
-    >
-      <SectionHeading>Skills</SectionHeading>
+    <Section id="skills" name="Skills">
+      <SectionHead title="Toolkit" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {skillCategories.map((category, catIndex) => (
-          <motion.div
-            key={category.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: catIndex * 0.08 }}
-            viewport={{ once: true }}
-            className="rounded-2xl bg-swiss-card/60 border border-swiss-border p-6 hover:border-swiss-accent/60 transition-colors duration-300"
+      <Plate
+        name="Skills"
+        aspect={WIDE}
+        sizes="100vw"
+        className="mb-16 sm:mb-24"
+      />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-5 gap-y-12">
+        {columns.map((column, i) => (
+          <FadeIn
+            key={column[0].label}
+            delay={i * 0.06}
+            className="border-t border-ink-rule pt-4 space-y-10"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="h-px w-6 bg-swiss-accent" />
-              <h3 className="swiss-label text-swiss-text-secondary">
-                {category.label}
-              </h3>
-            </div>
-            <ul className="flex flex-wrap gap-2">
-              {category.skills.map((skill) => (
-                <li
-                  key={skill}
-                  className="px-3 py-1.5 bg-swiss-text/5 border border-transparent rounded-lg text-sm font-medium text-swiss-text-secondary hover:text-swiss-text hover:border-swiss-border transition-all duration-200"
-                >
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+            {column.map((category) => (
+              <div key={category.label}>
+                <h3 className="label text-ink-muted mb-6">{category.label}</h3>
+                <ul className="body-lg">
+                  {category.skills.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </FadeIn>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

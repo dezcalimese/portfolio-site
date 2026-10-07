@@ -1,16 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Toaster } from "react-hot-toast";
 import ActiveSectionContextProvider from "@/context/active-section-context";
-import ThemeContextProvider from "@/context/theme-content";
-
-const TopographicBackground = dynamic(
-  () => import("@/components/topographic-background"),
-  { ssr: false }
-);
 
 export default function LayoutClient({
   children,
@@ -18,24 +11,21 @@ export default function LayoutClient({
   children: React.ReactNode;
 }) {
   return (
-    <ThemeContextProvider>
-      <TopographicBackground />
-
-      <ActiveSectionContextProvider>
-        <Header />
-        {children}
-        <Footer />
-        <Toaster
-          position="bottom-right"
-          toastOptions={{
-            style: {
-              background: "var(--color-card)",
-              color: "var(--color-text)",
-              border: "1px solid var(--color-border)",
-            },
-          }}
-        />
-      </ActiveSectionContextProvider>
-    </ThemeContextProvider>
+    <ActiveSectionContextProvider>
+      <Header />
+      {children}
+      <Footer />
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: "#0e0e0d",
+            color: "#ebe8e1",
+            borderRadius: 0,
+            fontSize: "0.8125rem",
+          },
+        }}
+      />
+    </ActiveSectionContextProvider>
   );
 }

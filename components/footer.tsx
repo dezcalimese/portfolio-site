@@ -2,12 +2,12 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="py-10 px-4 border-t border-swiss-border">
-      <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="swiss-label text-swiss-text-secondary">
+    <footer className="theme-dark bg-ink-bg text-ink-muted">
+      <div className="mx-auto max-w-page px-5 sm:px-8 py-8 grid grid-cols-12 gap-x-5 gap-y-2 label border-t border-ink-rule">
+        <p className="col-span-12 md:col-span-6">
           &copy; {new Date().getFullYear()} Dez Calimese
         </p>
-        <p className="text-xs text-swiss-text-secondary text-center sm:text-right">
+        <p className="col-span-12 md:col-span-6">
           Built with Next.js, TypeScript, Tailwind & Framer Motion
         </p>
       </div>

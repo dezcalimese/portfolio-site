@@ -1,7 +1,20 @@
 import "./globals.css";
-import { GeistSans } from "geist/font/sans";
+import { Instrument_Serif, Inter_Tight } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import LayoutClient from "@/components/layout-client";
+
+const serif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+});
+
+const sans = Inter_Tight({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-sans",
+});
 
 export const metadata = {
   title: "Dez Calimese | Applied AI & Blockchain Engineer",
@@ -15,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth dark" suppressHydrationWarning>
+    <html lang="en" className="theme-light">
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} font-sans text-swiss-text relative pt-28 sm:pt-36`}
+        className={`${serif.variable} ${sans.variable} ${GeistMono.variable} font-sans`}
       >
         <LayoutClient>{children}</LayoutClient>
       </body>

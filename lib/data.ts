@@ -1,4 +1,4 @@
-import quincyLabsImg from "@/public/quincy-labs-dark.png";
+import quincyLabsImg from "@/public/quincy-labs-oct26.png";
 import nekoImg from "@/public/neko-app.png";
 import bricksRealEstateImg from "@/public/bricks-real-estate.png";
 import brxexchangeImg from "@/public/brx-exchange.png";
@@ -58,7 +58,7 @@ export const experiencesData = [
     type: "work" as const,
   },
   {
-    title: "Lead Blockchain Developer",
+    title: "Lead Frontend Developer",
     company: "Bricks Exchange",
     description:
       "Principal engineer over a four-person frontend team. Onboarded and mentored three junior devs through code review and pairing, cutting delivery timelines 25%. Shipped production dApps with Next.js, Wagmi, Viem, and TypeScript.",
@@ -80,6 +80,19 @@ export const experiencesData = [
       "Completed an intensive Solana/Anchor audit program, adding formal audit methodology to a foundation in smart-contract security and full-stack engineering. Capstone: the MetaLend security audit.",
     date: "2026",
     type: "education" as const,
+    // Earlier bootcamps, newest first (from LinkedIn Education)
+    previously: [
+      { name: "RareSkills Advanced Solidity", year: "2025–26" },
+      { name: "Encode Club Expert Solidity", year: "2023" },
+      { name: "Encode Club Solidity", year: "2023" },
+      { name: "Ackee Winter School of Solana", year: "2023" },
+      { name: "Encode Club Algorand Camp", year: "2022–23" },
+      { name: "Encode Club Cairo Camp", year: "2022" },
+      { name: "StarkNet Basecamp", year: "2022" },
+      { name: "Consensys Academy Ethereum Development", year: "2021–22" },
+      { name: "Secureum Smart Contract Auditing", year: "2021" },
+      { name: "Nucamp Python, SQL & DevOps", year: "2021" },
+    ],
   },
 ] as const;
 
@@ -154,19 +167,23 @@ export const securityData = [
     title: "MetaLend Security Audit",
     context: "Rektoff × Solana Foundation Bootcamp — Capstone",
     description:
-      "Audited a Solana lending protocol and surfaced high-severity vulnerabilities across oracle integrity, borrow, withdraw, and liquidation instructions. Delivered findings with working Anchor proof-of-concepts confirming exploitability.",
-    findings: [
-      "Oracle integrity manipulation",
-      "Borrow / withdraw accounting flaws",
-      "Liquidation instruction abuse",
-    ],
-    tags: ["Solana", "Anchor", "Rust", "Oracle Security", "PoC"],
+      "Audited a Solana lending protocol and surfaced multiple high-severity vulnerabilities, each delivered with a working Anchor proof-of-concept confirming exploitability.",
+    tags: ["Solana", "Anchor", "Rust", "DeFi Security", "PoC"],
     date: "2026",
     note: "Full report available on request",
   },
 ] as const;
 
 export const skillCategories = [
+  // The first two categories share a column in the Toolkit section
+  {
+    label: "AI Tools",
+    skills: ["Claude Code", "Codex", "Cursor", "Muse", "Grok"],
+  },
+  {
+    label: "Agents & Protocols",
+    skills: ["MCP", "LangChain", "ElizaOS", "Hermes Agent", "OpenClaw"],
+  },
   {
     label: "Smart Contracts & Security",
     skills: [
@@ -228,3 +245,28 @@ export const contributionsData = [
     merged: true,
   },
 ] as const;
+
+// Each section's NYC plate. `theme` follows the plate's mean luminance
+// (measured on a 0–255 scale; >= 150 reads as paper, below as night).
+export const plates = {
+  Home: { src: "/nyc-pics/nyc-7.webp", number: "VII", theme: "light" },
+  About: { src: "/nyc-pics/nyc-6.webp", number: "VI", theme: "dark" },
+  Projects: { src: "/nyc-pics/nyc-2.webp", number: "II", theme: "light" },
+  Security: { src: "/nyc-pics/nyc-4.webp", number: "IV", theme: "dark" },
+  Skills: { src: "/nyc-pics/nyc-3.webp", number: "III", theme: "light" },
+  Experience: { src: "/nyc-pics/nyc-5.webp", number: "V", theme: "dark" },
+  OSS: { src: "/nyc-pics/nyc-1.webp", number: "I", theme: "dark" },
+  Contact: { src: "/nyc-pics/nyc-8.webp", number: "VIII", theme: "dark" },
+} as const;
+
+// Open source tools Dez builds and maintains. The "Tools" block in the Open
+// Source section renders only once this has entries.
+export type OssTool = {
+  title: string;
+  repo: string; // e.g. "dezcalimese/tool-name"
+  description: string;
+  tags: string[];
+  link: string;
+};
+
+export const toolsData: OssTool[] = [];
