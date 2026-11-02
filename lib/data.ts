@@ -4,6 +4,7 @@ import bricksRealEstateImg from "@/public/bricks-real-estate.png";
 import brxexchangeImg from "@/public/brx-exchange.png";
 import mintingmelodiesImg from "@/public/minting-melodies.png";
 import rsvpappImg from "@/public/rsvp-app.png";
+import suiSecBenchImg from "@/public/sui-sec-bench.png";
 
 export const links = [
   {
@@ -42,10 +43,10 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Founder",
+    title: "Co-Founder",
     company: "Quincy Labs",
     description:
-      "Co-founded an AI and blockchain research collective and studio building agent-driven products across DeFi, cryptography, and applied AI. Built MCP integrations surfacing insights from a 500+ channel, 8-year research base to power agentic workflows, and maintain deployment infrastructure across the collective (Docker, AWS, CI/CD). Contributing engineering and leading UI/UX on Emergency Passport (Red Cell Systems), an AI-native app surfacing critical patient context during sickle cell crises.",
+      "Co-founded an AI and blockchain research collective and studio building agent-driven products across DeFi, cryptography, and applied AI. Built Sui Sec Bench, an AI security benchmark that tests LLMs on detecting, patching, and exploiting bugs in Sui Move contracts; in a v1 pilot of 6 local models, they found the right function 34/36 times but wrote a correct patch 1/36. Built MCP integrations surfacing insights from a 500+ channel, 8-year research base to power agentic workflows, and maintain deployment infrastructure across the collective (Docker, AWS, CI/CD). Contributing engineering and leading UI/UX on Emergency Passport (Red Cell Systems), an AI-native app surfacing critical patient context during sickle cell crises.",
     date: "2018 — Present",
     type: "work" as const,
   },
@@ -97,6 +98,15 @@ export const experiencesData = [
 ] as const;
 
 export const projectsData = [
+  {
+    title: "Sui Sec Bench",
+    description:
+      "An AI security benchmark for Sui Move smart contracts. Tests LLMs on detecting, patching, and exploiting bugs, graded automatically with the Sui Move compiler and tests. Built at Quincy Labs.",
+    tags: ["Sui Move", "Python", "LM Studio", "Remotion", "Next.js"],
+    imageUrl: suiSecBenchImg,
+    span: 1,
+    link: "https://quincylabs.org/research/sui-sec-bench",
+  },
   {
     title: "Quincy Labs",
     description:
@@ -164,6 +174,16 @@ export const projectsData = [
 
 export const securityData = [
   {
+    title: "Sui Sec Bench",
+    context: "Quincy Labs, v1 pilot",
+    description:
+      "An AI security benchmark for Sui Move smart contracts. LLMs must detect the vulnerable function and bug class, patch it so the fix builds, passes functional tests, and blocks the exploit, and write an exploit test that passes on vulnerable code and fails on fixed code. Across 6 local models: right function 34/36, correct patch 1/36, assisted exploit test 10/12. Models locate bugs but rarely fix them.",
+    tags: ["Sui Move", "Python", "LLM Evaluation", "LM Studio"],
+    date: "2026",
+    note: "Small pilot, not a ranking",
+    link: "https://quincylabs.org/research/sui-sec-bench",
+  },
+  {
     title: "MetaLend Security Audit",
     context: "Rektoff × Solana Foundation Bootcamp — Capstone",
     description:
@@ -171,6 +191,7 @@ export const securityData = [
     tags: ["Solana", "Anchor", "Rust", "DeFi Security", "PoC"],
     date: "2026",
     note: "Full report available on request",
+    link: null,
   },
 ] as const;
 
@@ -269,4 +290,13 @@ export type OssTool = {
   link: string;
 };
 
-export const toolsData: OssTool[] = [];
+export const toolsData: OssTool[] = [
+  {
+    title: "Sui Sec Bench",
+    repo: "Quincy-Labs/sui-sec-bench",
+    description:
+      "Python harness that runs local models through LM Studio and grades detect, patch, and exploit tasks automatically with the Sui Move compiler and tests, plus an agentic exploit mode with up to 5 iterations. Public grades and cases, with exploit tests kept in a restricted bundle.",
+    tags: ["Python", "Sui Move", "LM Studio", "LLM Evaluation"],
+    link: "https://github.com/Quincy-Labs/sui-sec-bench",
+  },
+];

@@ -9,10 +9,10 @@ export default function Security() {
     <Section id="security" name="Security">
       <SectionHead title="Security Research" />
 
-      {securityData.map((item) => (
+      {securityData.map((item, index) => (
         <article
           key={item.title}
-          className="grid grid-cols-12 gap-x-5 gap-y-12 border-t border-ink-rule pt-8"
+          className="grid grid-cols-12 gap-x-5 gap-y-12 border-t border-ink-rule pt-8 [&+&]:mt-20"
         >
           <div className="col-span-12 md:col-span-6">
             <p className="label text-ink-muted mb-6">
@@ -27,15 +27,28 @@ export default function Security() {
 
 
             <p className="label mt-10">{item.tags.join(" / ")}</p>
+            {item.link && (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="label mt-3 inline-block underline underline-offset-4 hover:text-ink-muted"
+              >
+                View results ↗
+              </a>
+            )}
             <p className="mt-3 font-serif italic text-lg text-ink-muted">
               {item.note}.
             </p>
           </div>
 
-          <Plate
-            name="Security"
-            className="col-span-12 sm:col-span-8 md:col-start-8 md:col-span-5"
-          />
+          {/* One plate per section, beside the first entry */}
+          {index === 0 && (
+            <Plate
+              name="Security"
+              className="col-span-12 sm:col-span-8 md:col-start-8 md:col-span-5"
+            />
+          )}
         </article>
       ))}
     </Section>

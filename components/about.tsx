@@ -21,13 +21,14 @@ export default function About() {
             <FadeIn className="col-span-6 sm:col-span-3">
               <p className="label text-ink-fg mb-3">Now</p>
               <p>
-                Co-founder of <span className="text-ink-fg">Quincy Labs</span>,
-                an AI and blockchain research collective and studio. I build
-                MCP integrations over an 8-year research base and lead
-                engineering on{" "}
-                <span className="text-ink-fg">Emergency Passport</span>, an
-                AI-native app surfacing critical patient context during sickle
-                cell crises.
+                Co-founder of{" "}
+                <span className="text-ink-fg">Quincy Labs</span>, an AI and
+                blockchain research studio. I built{" "}
+                <span className="text-ink-fg">Sui Sec Bench</span>, an AI
+                security benchmark for Sui Move smart contracts, build MCP
+                integrations over an 8-year research base, and lead UI/UX on
+                Emergency Passport, an AI-native app surfacing critical patient
+                context during sickle cell crises.
               </p>
             </FadeIn>
             <FadeIn delay={0.08} className="col-span-6 sm:col-span-3">
@@ -48,7 +49,9 @@ export default function About() {
                 Bootcamp, adding formal Solana/Anchor audit methodology to a
                 background in smart-contract security. My capstone audit of a
                 Solana lending protocol found multiple high-severity bugs, each
-                with a working exploit.
+                with a working exploit. Most recently I built Sui Sec Bench to
+                test whether LLMs can find, patch, and exploit bugs in Sui Move
+                contracts.
               </p>
             </FadeIn>
             <FadeIn delay={0.08} className="col-span-6 sm:col-span-3">
