@@ -5,6 +5,7 @@ import brxexchangeImg from "@/public/brx-exchange.png";
 import mintingmelodiesImg from "@/public/minting-melodies.png";
 import rsvpappImg from "@/public/rsvp-app.png";
 import suiSecBenchImg from "@/public/sui-sec-bench.png";
+import solanaSecBenchImg from "@/public/solana-sec-bench.png";
 
 export const links = [
   {
@@ -46,7 +47,7 @@ export const experiencesData = [
     title: "Co-Founder",
     company: "Quincy Labs",
     description:
-      "Co-founded an AI and blockchain research collective and studio building agent-driven products across DeFi, cryptography, and applied AI. Built Sui Sec Bench, an AI security benchmark that tests LLMs on detecting, patching, and exploiting bugs in Sui Move contracts; in a v1 pilot of 6 local models, they found the right function 34/36 times but wrote a correct patch 1/36. Built MCP integrations surfacing insights from a 500+ channel, 8-year research base to power agentic workflows, and maintain deployment infrastructure across the collective (Docker, AWS, CI/CD). Contributing engineering and leading UI/UX on Emergency Passport (Red Cell Systems), an AI-native app surfacing critical patient context during sickle cell crises.",
+      "Co-founded an AI and blockchain research collective and studio building agent-driven products across DeFi, cryptography, and applied AI. Built Sui Sec Bench and Solana Sec Bench, AI security benchmarks that test models on finding, fixing, and proving bugs in Sui Move and Solana programs, on sec-bench-core, a shared harness I built for both. Built MCP integrations surfacing insights from a 500+ channel, 8-year research base to power agentic workflows, and maintain deployment infrastructure across the collective (Docker, AWS, CI/CD). Contributing engineering and leading UI/UX on Emergency Passport (Red Cell Systems), an AI-native app surfacing critical patient context during sickle cell crises.",
     date: "2018 — Present",
     type: "work" as const,
   },
@@ -99,9 +100,18 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "Solana Sec Bench",
+    description:
+      "An open benchmark that tests AI models on finding, fixing and proving vulnerabilities in Solana programs (Anchor and Pinocchio), graded by running code in LiteSVM, not by a judge model. Sister benchmark to Sui Sec Bench, both on the shared sec-bench-core harness. Built at Quincy Labs.",
+    tags: ["Solana", "Rust", "Anchor", "Pinocchio", "LiteSVM", "Python", "LLM Evaluation", "Remotion"],
+    imageUrl: solanaSecBenchImg,
+    span: 2,
+    link: "https://quincylabs.org/research/solana-sec-bench",
+  },
+  {
     title: "Sui Sec Bench",
     description:
-      "An AI security benchmark for Sui Move smart contracts. Tests LLMs on detecting, patching, and exploiting bugs, graded automatically with the Sui Move compiler and tests. Built at Quincy Labs.",
+      "An AI security benchmark for Sui Move smart contracts. Tests LLMs on detecting, patching, and exploiting bugs, graded automatically with the Sui Move compiler and tests. Sister benchmark to Solana Sec Bench. Built at Quincy Labs.",
     tags: ["Sui Move", "Python", "LM Studio", "Remotion", "Next.js"],
     imageUrl: suiSecBenchImg,
     span: 1,
@@ -174,6 +184,20 @@ export const projectsData = [
 
 export const securityData = [
   {
+    title: "Solana Sec Bench",
+    context: "Quincy Labs, first baseline",
+    description:
+      "An open benchmark that tests AI models on finding, fixing and proving vulnerabilities in Solana programs (Anchor and Pinocchio). Every answer is graded by running code in LiteSVM, not by a judge model. A fix must build, pass functional tests and block a withheld reference exploit. A proof must pass on the vulnerable program and fail on the fixed one. Across 5 local open-weight models and 3 cases (one clean control): Find 31/45, Fix 9/30, Prove 0/30 first try and 8/30 with test feedback. Finding, fixing and proving are different skills: the best finder (gpt-oss-20b) proved nothing.",
+    tags: ["Solana", "Rust", "Anchor", "Pinocchio", "LiteSVM", "Python", "LLM Evaluation"],
+    date: "Nov 2026",
+    note: "Small pilot, not a ranking",
+    links: [
+      { label: "View results", href: "https://quincylabs.org/research/solana-sec-bench" },
+      { label: "Repository", href: "https://github.com/Quincy-Labs/solana-sec-bench" },
+      { label: "Sui Sec Bench", href: "#sui-sec-bench" },
+    ],
+  },
+  {
     title: "Sui Sec Bench",
     context: "Quincy Labs, v1 pilot",
     description:
@@ -181,7 +205,10 @@ export const securityData = [
     tags: ["Sui Move", "Python", "LLM Evaluation", "LM Studio"],
     date: "2026",
     note: "Small pilot, not a ranking",
-    link: "https://quincylabs.org/research/sui-sec-bench",
+    links: [
+      { label: "View results", href: "https://quincylabs.org/research/sui-sec-bench" },
+      { label: "Solana Sec Bench", href: "#solana-sec-bench" },
+    ],
   },
   {
     title: "MetaLend Security Audit",
@@ -191,7 +218,7 @@ export const securityData = [
     tags: ["Solana", "Anchor", "Rust", "DeFi Security", "PoC"],
     date: "2026",
     note: "Full report available on request",
-    link: null,
+    links: [],
   },
 ] as const;
 
@@ -291,6 +318,22 @@ export type OssTool = {
 };
 
 export const toolsData: OssTool[] = [
+  {
+    title: "Solana Sec Bench",
+    repo: "Quincy-Labs/solana-sec-bench",
+    description:
+      "Benchmark cases and graders for finding, fixing and proving vulnerabilities in Anchor and Pinocchio programs. Fixes and proofs run in LiteSVM against a withheld reference exploit.",
+    tags: ["Solana", "Rust", "LiteSVM", "Python", "LLM Evaluation"],
+    link: "https://github.com/Quincy-Labs/solana-sec-bench",
+  },
+  {
+    title: "Sec Bench Core",
+    repo: "Quincy-Labs/sec-bench-core",
+    description:
+      "Shared harness behind the Sui and Solana benchmarks: model adapters, run loop, grading, leak check and leaderboard.",
+    tags: ["Python", "LLM Evaluation"],
+    link: "https://github.com/Quincy-Labs/sec-bench-core",
+  },
   {
     title: "Sui Sec Bench",
     repo: "Quincy-Labs/sui-sec-bench",

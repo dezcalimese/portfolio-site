@@ -24,8 +24,9 @@ export default function About() {
                 Co-founder of{" "}
                 <span className="text-ink-fg">Quincy Labs</span>, an AI and
                 blockchain research studio. I built{" "}
-                <span className="text-ink-fg">Sui Sec Bench</span>, an AI
-                security benchmark for Sui Move smart contracts, build MCP
+                <span className="text-ink-fg">Sui Sec Bench</span> and{" "}
+                <span className="text-ink-fg">Solana Sec Bench</span>, AI
+                security benchmarks for Sui and Solana, build MCP
                 integrations over an 8-year research base, and lead UI/UX on
                 Emergency Passport, an AI-native app surfacing critical patient
                 context during sickle cell crises.
@@ -49,9 +50,9 @@ export default function About() {
                 Bootcamp, adding formal Solana/Anchor audit methodology to a
                 background in smart-contract security. My capstone audit of a
                 Solana lending protocol found multiple high-severity bugs, each
-                with a working exploit. Most recently I built Sui Sec Bench to
-                test whether LLMs can find, patch, and exploit bugs in Sui Move
-                contracts.
+                with a working exploit. Most recently I built Sui Sec Bench and
+                Solana Sec Bench to test whether AI models can find, fix, and
+                prove bugs in Sui Move and Solana programs.
               </p>
             </FadeIn>
             <FadeIn delay={0.08} className="col-span-6 sm:col-span-3">

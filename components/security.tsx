@@ -12,6 +12,7 @@ export default function Security() {
       {securityData.map((item, index) => (
         <article
           key={item.title}
+          id={item.title.toLowerCase().replace(/ /g, "-")}
           className="grid grid-cols-12 gap-x-5 gap-y-12 border-t border-ink-rule pt-8 [&+&]:mt-20"
         >
           <div className="col-span-12 md:col-span-6">
@@ -27,15 +28,22 @@ export default function Security() {
 
 
             <p className="label mt-10">{item.tags.join(" / ")}</p>
-            {item.link && (
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="label mt-3 inline-block underline underline-offset-4 hover:text-ink-muted"
-              >
-                View results ↗
-              </a>
+            {item.links.length > 0 && (
+              <p className="label mt-3 flex flex-wrap gap-x-5 gap-y-2">
+                {item.links.map((l) => {
+                  const external = l.href.startsWith("http");
+                  return (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      {...(external && { target: "_blank", rel: "noopener noreferrer" })}
+                      className="underline underline-offset-4 hover:text-ink-muted"
+                    >
+                      {l.label} {external ? "↗" : "↓"}
+                    </a>
+                  );
+                })}
+              </p>
             )}
             <p className="mt-3 font-serif italic text-lg text-ink-muted">
               {item.note}.
